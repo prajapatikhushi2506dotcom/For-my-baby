@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love ♥️ Khushi Prajapati</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #ff4e6d;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff2a50;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 2rem;
+      color: #fff;
+      display: none;
+      animation: pop 0.6s ease forwards;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .heart {
+      position: absolute;
+      bottom: 50px;
+      font-size: 24px;
+      color: red;
+      animation: floatUp 4s ease-in infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-600px) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>For My Love ♥️ Khushi Prajapati</h1>
+  <p>Here’s a warm hug and my love for you 💕</p>
+
+  <input type="text" id="nameInput" placeholder="Enter your name...">
+  <button onclick="sendLove()">Send 💌</button>
+
+  <div id="message" class="message"></div>
+
+  <!-- Background music (optional) -->
+  <audio id="bgMusic" src="music.mp3"></audio>
+
+  <script>
+    function sendLove() {
+      let name = document.getElementById("nameInput").value;
+      let msgBox = document.getElementById("message");
+
+      if (name.trim() === "") {
+        msgBox.innerHTML = "🤗 Big Hug and I Love You Forever ♥️";
+      } else {
+        msgBox.innerHTML = "🤗 Big Hug and I Love You, " + name + " ♥️";
+      }
+
+      msgBox.style.display = "block";
+
+      // Play background music
+      let music = document.getElementById("bgMusic");
+      music.play();
+
+      // Floating hearts
+      for (let i = 0; i < 10; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+  </script>
+</body>
+</html>
